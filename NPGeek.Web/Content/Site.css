@@ -97,7 +97,6 @@ body{
 
 .container{
     max-width: none !important;
-    position: fixed;
 }
 
 .nav-link, .nav-link:hover{
