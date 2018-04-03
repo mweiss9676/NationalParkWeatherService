@@ -11,14 +11,11 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-
-        <div class="container">
-                @Html.ActionLink("NPWS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Top Parks", "FavoriteParks", "FavoriteParks", new { @class = "nav-link" })
-                @Html.ActionLink("Survey", "Survey", "FavoriteParks", new { @class = "nav-link" })
-        </div>
-
-
+    <div class="container">
+            @Html.ActionLink("NPWS", "Index", "Home", new { area = "" }, new { @class = "nav-link navbar-brand" })
+            @Html.ActionLink("Top Parks", "FavoriteParks", "FavoriteParks", new { area="" }, new { @class = "nav-link" })
+            @Html.ActionLink("Survey", "Survey", "FavoriteParks", new { area = "" }, new { @class = "nav-link" })
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

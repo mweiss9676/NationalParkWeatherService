@@ -47,6 +47,8 @@
 <style>
     .park-detail-img-sharp {
         background-image: url("../Content/Images/parks/@(Model.ParkCode.ToLower()).jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>
 
@@ -61,8 +63,10 @@
         <div class="weather-week weather-today">
             <h4>@DateTime.Today.DayOfWeek</h4>
             <i class="wi @iconTranslation[Today.Forecast]"></i>
-            <h5 class="weather-conversion">High @Today.High&deg;</h5>
-            <h5 class="weather-conversion">Low @Today.Low&deg;</h5>
+            <div class="temperatures">
+                <h5 class="weather-detail high">High <span class="weather-conversion">@Today.High</span>&deg;</h5>
+                <h5 class="weather-detail">Low <span class="weather-conversion">@Today.Low</span>&deg;</h5>
+            </div>
         </div> <!--END WEATHER TODAY-->
 
         @for (int i = 2; i < 6; i++)
@@ -70,68 +74,14 @@
             <div class="weather-week day@(i)">
                 <h4>@DateTime.Today.AddDays(i - 1).DayOfWeek</h4>
                 <i class="wi @iconTranslation[Weather[i - 1].Forecast]"></i>
-                <h5 class="weather-conversion">High @Weather[i - 1].High &deg;</h5>
-                <h5 class="weather-conversion">Low @Weather[i - 1].Low &deg;</h5>
+                <div class="temperatures">
+                    <h5 class="weather-detail high">High <span class="weather-conversion">@Weather[i - 1].High</span> &deg;</h5>
+                    <h5 class="weather-detail">Low <span class="weather-conversion">@Weather[i - 1].Low</span> &deg;</h5>
+                </div>
             </div>
         }
 
     </div><!--END WEATHER FROSTED BACKGROUND -->
 </div>
-@*<div class="park-detail-container">
-    <img class="park-detail-img-blur" src="~/Content/Images/parks/@(Model.ParkCode.ToLower()).jpg" />
-    <div class="park-detail-weather-container">
-        <div class="park-deatil-img-container">
-            <img id="park-@Model.ParkCode.ToLower()" class="park-detail-img" src="~/Content/Images/parks/@(Model.ParkCode.ToLower()).jpg" />
-            <div class="detail-park-name"><h1>@Model.Name</h1></div>
-            <button class="temperature-toggle-btn" onclick="WeatherConversion()">Toggle F&deg;/C&deg;</button>
-        </div>
-        <div class="weather-frosted-background">
-
-            <div class="weather-today">
-                <i class="wi @iconTranslation[Today.Forecast]"></i>
-            </div>
-            <div class="weather-week day2">
-                <i class="wi @iconTranslation[Weather[1].Forecast]"></i>
-            </div>
-            <div class="weather-week day3">
-                <i class="wi @iconTranslation[Weather[2].Forecast]"></i>
-            </div>
-            <div class="weather-week day4">
-                <i class="wi @iconTranslation[Weather[3].Forecast]"></i>
-            </div>
-            <div class="weather-week day5">
-                <i class="wi @iconTranslation[Weather[4].Forecast]"></i>
-            </div>
-
-        </div>
-        
-        
-        @*<div class="park-detail-weather">
-            <div class="weather-detail-today"> <!--Todays Forecast-->
-                <h3>Today</h3>
-                <i class="wi @iconTranslation[Today.Forecast]"></i>
-                <p class="weather-conversion today-weather-high">High: @Today.High&deg;</p> <p class="weather-conversion today-weather-low">Low: @Today.Low&deg;</p>
-                <p class="today-weather-advice">@weatherAdvice[Today.Forecast]</p>
-                <p class="today-weather-hot">@HotToday</p>
-                <p class="today-weather-cold">@ColdToday</p>
-                <p class="today-weather-variableTemp">@VariableTemperatureToday</p>
-            </div>
-            <div class="detail-four-day-forecast">
-                @for (int i = 1; i <= 4; i++) //4 is the number of days left in the five day forecast after having shown todays information
-                {
-                    <div class="weather-detail-day">
-                        <i class="wi @iconTranslation[Weather[i].Forecast]"></i>
-                        <p class="weather-day-high">High: <span class="weather-conversion">@Weather[i].High</span>&deg;</p>
-                        <p class="weather-day-low">Low: <span class="weather-conversion">@Weather[i].Low</span>&deg;</p>
-                    </div>
-                }
-            </div>
-            
-        </div><!--END PARK DETAIL WEATHER-->
-        
-    </div>
-
-
-</div>*@
 <script src="~/Content/WeatherConverter.js"></script>
 

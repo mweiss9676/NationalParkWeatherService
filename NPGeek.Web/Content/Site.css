@@ -6,7 +6,7 @@
 /*************************VARIABLES**************************/
 
 :root {
-    --main-font-color: whitesmoke;
+    --main-font-color: rgba(255, 253, 247, 1);
     --header-font: "Archivo Black", sans-serif;
     --body-font: "Archivo Narrow", sans-serif;
 }
@@ -28,80 +28,113 @@ body{
     width: 100vw;
     height: 60vh;
     position: relative;
-    overflow: hidden;
-}
-
-.parkImg {
-    width: 100%;
-    height: auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    /*filter: brightness(.7) blur(20px);*/
 }
 
 .image-holder {
     overflow: hidden;
-    width: 95%;
-    height: auto;
-    position: relative;
+    width: 90vw;
+    height: 60vh;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 15% 30% 10% 30% 15%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        '. . . . .'
+        'left park-name . park-information right'
+        '. national . . .'
 }
 
-.parkImg:hover {
-    /*filter: blur(20px);*/
-
+.park-link {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
 }
 
-.parkContainer .parkImg {
+
+.parkContainer .park-image {
     filter: brightness(.7) blur(20px);
 }
 
-.parkContainer:hover .parkImg {
+.parkContainer:hover .park-image {
     filter: blur(20px);
 }
 
-.park-name {
+.park-image {
     position: absolute;
-    color: var(--main-font-color);
-    font-size: 8rem;
-    left: 20rem;
-    top: 50%;
-    transform: translateY(-50%);
+    object-fit: fill;
+    width: 100%;
+}
+
+.park-name-and-national {
+    grid-area: park-name;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.park-name-and-national-interior {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.park-name {
+    color: var(--main-font-color);
+    font-size: 9vh;
     font-family: var(--header-font);
     text-transform: uppercase;
-    width: 40%;
+    text-align: right;
+    display: table !important;
+    float: right !important;
 }
 
 .national-park {
     font-family: var(--body-font);
-    font-size: 3rem;
-    color: white;
+    font-size: 3.5vh;
+    color: var(--main-font-color);
+    position: absolute;
+    right: 0;
+    bottom: -2.5rem;
 }
 
 .park-description {
-    color: mintcream;
-    position: absolute;
-    right: 20rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30%;
+    grid-area: park-information;
+    color: var(--main-font-color);
+    z-index: 2;
     font-family: var(--body-font);
+    font-size: 3vh;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .navbar-inverse{
     background-color: black !important;
 }
 
-.container{
+.container {
     max-width: none !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100vw;
+    z-index: 500;
 }
 
 .nav-link, .nav-link:hover{
     text-decoration: none;
     color: gray;
+    text-transform: uppercase;
+    margin: 0 2rem !important;
 }
 
 /*******************END INDEX***********************************/
@@ -130,7 +163,8 @@ body{
 
 .park-detail-name {
     font-family: var(--header-font);
-    font-size: 3rem;
+    color: var(--main-font-color);
+    font-size: 4vh;
     top: 1rem;
     left: 1rem;
     position: relative;
@@ -160,7 +194,7 @@ body{
     position: absolute;
     filter: blur(10px);
     background: inherit;
-    box-shadow:0 0 0 100px rgba(255, 255, 255, 0.1) inset;  
+    box-shadow:0 0 0 200px rgba(255, 255, 255, 0.1) inset;  
     background-position: bottom;
     background-size: inherit;
 }
@@ -176,6 +210,11 @@ body{
 
 .weather-today {
     grid-area: today;
+}
+
+.high {
+    position: relative;
+    top: -1rem;
 }
 
 .day2 {
@@ -194,7 +233,7 @@ body{
     grid-area: day5;
 }
 
-#park-enp {
+/*#park-enp {
     top: -110%;
 }
 
@@ -204,19 +243,19 @@ body{
 
 #park-gsmnp {
     top: -60%;
-}
+}*/
 
-#park-gtnp {
+/*#park-gtnp {
     top: -30px;
-}
-
+}*/
+/*
 #park-mrnp {
     top: -280px;
 }
 
 #park-ynp2 {
     top: -200px;
-}
+}*/
 
 .wi {
     font-size: 6.5rem;
@@ -225,6 +264,8 @@ body{
 
 .temperature-toggle-btn{
     position: absolute;
+    color: white;
+    font-size: 2vh;
     right: 1em;
     top: 1em;
     background:none;
@@ -239,3 +280,86 @@ body{
 }
 
 /*****************************END DETAIL*********************************/
+
+/*****************************SURVEY*************************************/
+
+#survey-title {
+    font-family: var(--header-font);
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 1);
+    z-index: 200;
+    text-align: center;
+}
+
+.survey-background {
+    height: 100vh;
+    width: 100vw;
+    background: url(Images/parks/gcnp.jpg);
+    color: var(--main-font-color);
+}
+
+label {
+    color: white;
+    font-family: var(--body-font);
+    font-size: 2rem;
+    font-weight: 100;
+    margin-right: 1rem !important;
+}
+
+.survey-form-wrapper {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 50vh;
+    overflow: hidden;
+    background: inherit;
+    box-shadow: 0px 20px 20px -5px rgba(2, 2, 2, .4);
+
+}
+
+.survey-form {
+    z-index: 80;
+    padding: 3rem 6rem 6rem 6rem !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    background-size: cover;
+    background: inherit;
+    font-family: var(--body-font);
+}
+
+.survey-form::after {
+    content: '';
+    background: inherit;
+    filter: blur(10px);
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    box-shadow:0 0 0 200px rgba(40, 40, 40, 0.1) inset;  
+}
+
+.survey-form > * {
+    margin-top: 2rem !important;
+    z-index: 100;
+    position: relative;
+
+}
+
+#form-button {
+    background-color: rgb(255, 255, 255);
+    padding: .4rem 1rem !important;
+    font-family: var(--body-font);
+    font-size: 1.5rem;
+    border: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+/*****************************END SURVEY*********************************/
+
