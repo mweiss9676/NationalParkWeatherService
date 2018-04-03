@@ -3,6 +3,19 @@
     margin: 0 !important;
 }
 
+/*************************VARIABLES**************************/
+
+:root {
+    --main-font-color: whitesmoke;
+    --header-font: "Archivo Black", sans-serif;
+    --body-font: "Archivo Narrow", sans-serif;
+}
+
+
+/*********************END VARIABLES**************************/
+
+
+/**********************INDEX***********************************/
 body{
     overflow-x: hidden;
 }
@@ -11,13 +24,9 @@ body{
     background-color: black;
 }
 
-:root {
-    --main-font-color: white;
-}
-
 .parkContainer {
     width: 100vw;
-    height: 30rem;
+    height: 60vh;
     position: relative;
     overflow: hidden;
 }
@@ -61,13 +70,13 @@ body{
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    font-family: "Archivo Black", sans-serif;
+    font-family: var(--header-font);
     text-transform: uppercase;
     width: 40%;
 }
 
 .national-park {
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: var(--body-font);
     font-size: 3rem;
     color: white;
 }
@@ -79,7 +88,7 @@ body{
     top: 50%;
     transform: translateY(-50%);
     width: 30%;
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: var(--body-font);
 }
 
 .navbar-inverse{
@@ -88,6 +97,7 @@ body{
 
 .container{
     max-width: none !important;
+    position: fixed;
 }
 
 .nav-link, .nav-link:hover{
@@ -95,9 +105,10 @@ body{
     color: gray;
 }
 
+/*******************END INDEX***********************************/
 
 
-/*DETAIL*/
+/*********************************DETAIL*********************************/
 .park-detail-img-blur{
     position: relative;
     width: 100vw;
@@ -105,26 +116,83 @@ body{
     filter: blur(20px);
 }
 
-.park-detail-weather-container {
+.park-detail-img-sharp {
     position: absolute;
-    top: 10vh;
-    left: 5vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 90vw;
     height: 85vh;
     color: whitesmoke;
+    overflow: hidden;
+    object-fit: cover;
+    background-position: center;
 }
 
-.park-deatil-img-container{
-    height: 75%;
-    overflow: hidden;
+.park-detail-name {
+    font-family: var(--header-font);
+    font-size: 3rem;
+    top: 1rem;
+    left: 1rem;
     position: relative;
 }
 
-.park-detail-img{
+.weather-frosted-background {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-areas:
+        'today tomorrow day3 day4 day5';
+    height: 35%;
     width: 100%;
-    height: auto;
     position: absolute;
-    top: -100px;
+    bottom: -2px;
+    background: inherit;
+    background-size: cover;
+    background-position: bottom;
+    overflow: hidden;
+}
+
+.weather-frosted-background:after {
+    content: '';
+    width: 110%;
+    height: 110%;
+    left: -15px;
+    top: -15px;
+    position: absolute;
+    filter: blur(10px);
+    background: inherit;
+    box-shadow:0 0 0 100px rgba(255, 255, 255, 0.1) inset;  
+    background-position: bottom;
+    background-size: inherit;
+}
+
+.weather-week {
+    z-index: 4;
+    color: var(--main-font-color);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.weather-today {
+    grid-area: today;
+}
+
+.day2 {
+    grid-area: tomorrow;
+}
+
+.day3 {
+    grid-area: day3;
+}
+
+.day4 {
+    grid-area: day4;
+}
+
+.day5 {
+    grid-area: day5;
 }
 
 #park-enp {
@@ -151,70 +219,17 @@ body{
     top: -200px;
 }
 
-.park-detail-weather{
-    display: grid;
-    grid-template-columns: 30% auto auto auto;
-    width: 100%;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.4);
-    height: 25%;
-}
-
-.weather-detail-today{
-    grid-column: 1 / span 1;
-}
-
-.weather-detail-today h3{
-    text-align: center;
-    width:100%;
-    margin-top: 0.25em !important;
-}
-
-.detail-four-day-forecast{
-    grid-column: 2 / span 4;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
-.weather-detail-day, .weather-detail-today {
-    position: relative;
-}
-
-.weather-detail-day p, .weather-detail-today p {
-    position: absolute;
-
-}
-
-.weather-day-high {
-    top: 76%;
-    left: 50%;
-    transform: translate(-50%, -76%);
-}
-
-.weather-day-low {
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -85%);
-}
-
 .wi {
-    font-size: 3.5em;
+    font-size: 6.5rem;
     color: whitesmoke;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.detail-park-name{
-    position: absolute;
-    bottom: 2em;
 }
 
 .temperature-toggle-btn{
     position: absolute;
-    right: 2em;
-    top: 2em;
+    right: 1em;
+    top: 1em;
+    background:none;
+    border: none;
 }
 
 .today-weather-advice {
@@ -224,32 +239,4 @@ body{
     transform: translate(-50%, -65%);
 }
 
-.today-weather-high {
-    top: 86%;
-    left: 50%;
-    transform: translate(-50%, -86%);
-}
-
-.today-weather-low {
-    top: 96%;
-    left: 50%;
-    transform: translate(-50%, -96%);
-}
-
-.today-weather-hot {
-    top: 26%;
-    left: 50%;
-    transform: translate(-50%, -26%);
-}
-
-.today-weather-cold {
-    top: 26%;
-    left: 50%;
-    transform: translate(-50%, -26%);
-}
-
-.today-weather-variableTemp {
-    top: 16%;
-    left: 50%;
-    transform: translate(-50%, -16%);
-}
+/*****************************END DETAIL*********************************/
