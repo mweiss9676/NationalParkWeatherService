@@ -294,7 +294,7 @@ body{
 .survey-background {
     height: 100vh;
     width: 100vw;
-    background: url(Images/parks/gcnp.jpg);
+    background: url(http://res.cloudinary.com/yyy32pf/image/upload/q_auto:best/v1522865878/National%20Parks/gcnp.jpg);
     color: var(--main-font-color);
 }
 
@@ -349,7 +349,6 @@ label {
     position: relative;
 
 }
-
 #form-button {
     background-color: rgb(255, 255, 255);
     padding: .4rem 1rem !important;
@@ -363,3 +362,11 @@ label {
 
 /*****************************END SURVEY*********************************/
 
+/****************************MEDIA QUERIES*******************************/
+
+@media (max-width: 2000) AND (min-width: 1100){
+
+
+}
+
+/************************END MEDIA QUERIES*******************************/

@@ -13,7 +13,7 @@
     <div class="parkContainer">
         <a class="park-link" href="@Url.Action("ParkDetail", "Home", park)"></a>
         <div class="image-holder">
-            <img class="park-image" src="~/Content/Images/parks/@(park.ParkCode.ToLower()).jpg" />
+            <img class="park-image" src="http://res.cloudinary.com/yyy32pf/image/upload/q_auto:low/v1522865878/National%20Parks/@(park.ParkCode.ToLower()).jpg" />
             <div class="park-name-and-national">
                 <div class="park-name-and-national-interior">
                     <h2 class="park-name">@park.Name</h2>
@@ -21,6 +21,6 @@
                 </div>
             </div>
             <p class="park-description">@park.Description</p>
-            </div>
+        </div>
         </div>
 }
