@@ -145,6 +145,7 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
     filter: blur(20px);
 }
 
@@ -265,7 +266,7 @@ body{
 .temperature-toggle-btn{
     position: absolute;
     color: white;
-    font-size: 2vh;
+    font-size: 3vh;
     right: 1em;
     top: 1em;
     background:none;
@@ -361,6 +362,69 @@ label {
 
 
 /*****************************END SURVEY*********************************/
+
+/********************************FAVORITE PARKS*********************************/
+
+.favorite-parks-background {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    background: url(http://res.cloudinary.com/yyy32pf/image/upload/q_auto:best/v1522865878/National%20Parks/gcnp.jpg);
+}
+
+.favorite-parks-container {
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    background: inherit;
+    transform: translate(-50%, -50%);
+}
+
+.favorite-parks {
+    position: relative;
+    color: gray;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: inherit;
+    color: var(--main-font-color);
+}
+
+.favorite-parks::after {
+    content: '';
+    filter: blur(10px);
+    position: absolute;
+    background: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.favorite-parks > * {
+    position: relative;
+    font-family: var(--body-font);
+    z-index: 20;
+    left: 1rem;
+}
+
+.number-of-favorites {
+    position: absolute;
+    right: 2rem;
+
+    
+}
+
+#favorite-parks-title {
+    font-family: var(--header-font);
+    margin-bottom: 2rem !important;
+}
+/*****************************END FAVORITE PARKS*********************************/
 
 /****************************MEDIA QUERIES*******************************/
 

@@ -4,9 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FavoriteParks</h2>
-@foreach(var park in Model)
-{
-    <h1>@park.Name</h1>
-    <h3>@park.NumberOfFavorites</h3>
-}
+<div class="favorite-parks-background">
+    <div class="favorite-parks-container">
+        <div class="favorite-parks">
+            <h2 id="favorite-parks-title">FavoriteParks</h2>
+
+            @foreach (var park in Model)
+            {
+                <h1>@park.Name <span class="number-of-favorites">@park.NumberOfFavorites</span></h1>
+            }
+        </div>
+    </div>
+</div>
